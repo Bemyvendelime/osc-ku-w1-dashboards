@@ -1,0 +1,7 @@
+__pycache__/
+data.json
+dashboard-*.html
+dashboard-*.md
+BRIEF_*.md
+DONE_*.txt
+_qa/
