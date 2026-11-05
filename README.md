@@ -79,7 +79,7 @@ https://raw.githubusercontent.com/Bemyvendelime/osc-ku-w1-dashboards/main/dash.p
 
 조회(GET)만 하고, 토큰은 답에 다시 적지 마.
 ```
-**알림도 받으려면**: 덱 BONUS(38장~) '구글 캘린더에 마감 넣기'를 이어서 해요. 캘린더 앱이 하루 전·3시간 전에 폰으로 알려 줘요.
+**알림도 받으려면**: 덱 BONUS(39장~) '구글 캘린더에 마감 넣기'를 이어서 해요. 캘린더 앱이 하루 전·3시간 전에 폰으로 알려 줘요.
 
 <a id="ui3"></a>
 
@@ -261,3 +261,10 @@ CANVAS_TOKEN=... python dash.py --ui 1   # 내 LMS로 (Windows PowerShell: $env:
 API key는 7일 뒤 저절로 만료돼요. 스튜디오 아워(매주 수 19:00)에서 학기 끝까지 쓸 key로 다시 만들고, 오늘 요청을 알리미로 키워요.
 
 OSC 고려대 · OpenAI Student Collective Korea University
+
+## 디자인 출처
+
+- [ShaderGradient](https://github.com/ruucm/shadergradient) — 패키지 `@shadergradient/react`는 MIT 표기이나 루트 LICENSE는 없음; 노이즈로 변형한 평면과 원근 카메라 아이디어를 참고해 모든 HTML 배경의 작은 WebGL 셰이더를 독자 구현했습니다.
+- [liquid-logo](https://github.com/paper-design/liquid-logo) — PolyForm Shield 1.0.0(경쟁 제한 포함)이므로 코드를 복사하지 않고, 각 화면 핵심 숫자에 흐르는 금속 반사 아이디어만 독자 셰이더로 구현했습니다.
+- [liquid-glass-js](https://github.com/dashersw/liquid-glass-js) — MIT, © 2025 Armagan Amcalar; 원본 WebGL의 가장자리 굴절·흐림·반사광 원리를 참고해 카드에 가벼운 CSS backdrop blur와 인라인 SVG 가장자리 변위를 독자 구현했습니다.
+- [react-three-fiber](https://github.com/pmndrs/react-three-fiber) — MIT, © 2019–2025 Poimandres; 장면·카메라·렌더 루프 분리 원리를 참고했으며 React/three.js/R3F 없이 인라인 WebGL, 최대 1× DPR·24fps 제한과 정지 상태 처리를 직접 구현했습니다.

@@ -523,6 +523,126 @@ details{min-width:0}summary{min-height:44px;padding:12px 0;font-weight:700;overf
 '''
 
 
+_GLASS_CREDIT = '''<!-- Glass edge technique inspired by liquid-glass-js (MIT, Copyright (c) 2025 Armagan Amcalar).
+Original compact CSS/SVG implementation; no library or screenshot capture code is bundled.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+'''
+
+_GLASS_SVG = '''<svg class="glass-defs" width="0" height="0" aria-hidden="true" focusable="false"><defs><filter id="osc-glass-edge" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency=".012 .035" numOctaves="1" seed="8" result="edgeNoise"/><feDisplacementMap in="SourceGraphic" in2="edgeNoise" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter></defs></svg>'''
+
+_POLISH_CSS = r'''
+:root{--bg:#f6ece4;--paper:rgba(255,251,247,.92);--ink:#2c171d;--muted:#674b53;--line:rgba(92,47,58,.16);--crimson:#85002a;--green:#285a43;--blue:#64354f;--rose:#f1dce0;--mint:#e2ebe1;--sky:#eee2e9;--shadow:0 14px 40px -24px rgba(70,11,33,.30),inset 0 1px 0 rgba(255,255,255,.95);--rim:rgba(255,255,255,.88);--glass-solid:#fff8f2}
+@media(prefers-color-scheme:dark){:root{--bg:#190b13;--paper:rgba(35,18,28,.94);--ink:#fff3eb;--muted:#d9bec4;--line:rgba(240,204,202,.20);--crimson:#f2b2bf;--green:#b3dfc1;--blue:#e3c2da;--rose:#48212f;--mint:#223b2c;--sky:#3b2839;--shadow:0 18px 46px -20px #05010688,inset 0 1px 0 #f8dac326;--rim:rgba(255,234,217,.34);--glass-solid:#24121d}}
+html{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.7;background:var(--bg);color:var(--ink)}
+body{min-width:0;background:transparent}main{padding:28px 20px 32px;max-width:800px;position:relative}main.wide{max-width:1160px}.glass-defs{position:absolute;overflow:hidden;pointer-events:none}
+.page-head{margin-bottom:28px}.brandline{margin-bottom:26px;gap:8px}.wordmark{font-size:10px;letter-spacing:1.3px;font-weight:750;color:var(--crimson)}.wordmark:before{width:9px;height:9px;border-radius:50%;box-shadow:0 0 0 4px var(--rose);margin:0 3px}
+.sample-badge{color:var(--muted);background:var(--paper);border:1px solid var(--line);border-radius:99px;font-size:10px;font-weight:600;padding:3px 9px}
+h1{font-size:28px;line-height:1.32;letter-spacing:-1.4px;font-weight:750;margin:0 0 12px;max-width:680px}.head-date{font-size:12px;letter-spacing:-.15px;color:var(--muted)}
+.section{margin:29px 0}.section-head{font-size:15px;font-weight:750;letter-spacing:-.35px;margin-bottom:14px}.eyebrow,.course{font-size:11px;font-weight:650;letter-spacing:.15px;color:var(--muted)}.eyebrow{letter-spacing:.4px}.course{line-height:1.6}
+.card,.task-list,.missing-hero,.empty,.sq-results,.sq-quest-list{position:relative;isolation:isolate;background:var(--paper);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);-webkit-backdrop-filter:blur(18px) saturate(1.08);backdrop-filter:blur(18px) saturate(1.08)}
+.card:before,.task-list:before,.missing-hero:before,.sq-results:before,.sq-quest-list:before{content:"";position:absolute;inset:0;padding:2px;border-radius:inherit;pointer-events:none;z-index:2;background:linear-gradient(135deg,var(--rim),transparent 26%,transparent 65%,var(--rim));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px) url(#osc-glass-edge)}
+.card{padding:24px}.task-list{overflow:hidden}.task-row{padding:18px 20px}.task-row+.task-row{border-top:1px solid var(--line)}.task-title{font-size:14px;font-weight:650;letter-spacing:-.25px;line-height:1.6}.task-title a{padding:4px 0;min-height:44px}.meta{font-size:11px;gap:7px 10px;line-height:1.6}.due-tag{font-weight:650}
+.pill{font-size:10px;font-weight:650;letter-spacing:0;padding:4px 8px;border-radius:7px}.empty{border-style:dashed;padding:28px 20px}.empty p{font-size:13px}.hero-note{opacity:1}.page-foot{font-size:10px;line-height:1.9;margin-top:34px;border-color:var(--line);padding:18px 2px;color:var(--muted)}
+button{box-shadow:inset 0 1px 0 var(--rim);border-radius:99px}button:hover{border-color:var(--crimson)}a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline-color:var(--crimson)}
+.missing-hero{padding:26px 24px;color:var(--ink);background:var(--paper)}.missing-hero .eyebrow{color:var(--muted)}.missing-hero h2{font-size:24px;margin:13px 0 18px;line-height:1.1;letter-spacing:-1px}.missing-hero strong{font-size:76px;letter-spacing:-4px;font-weight:650;color:var(--crimson)}.missing-hero p{font-size:12px;color:var(--ink)}.hero-note{color:var(--muted)}
+.cal-board.card{padding:24px 0 0}.cal-month-head{padding:0 22px;align-items:center}.cal-month-head h2{font-size:15px;letter-spacing:-.3px;font-weight:500;display:flex;gap:12px;align-items:baseline;margin-top:8px}.cal-month-head h2 strong{font-size:60px;line-height:1.12;letter-spacing:-3px;font-weight:650;color:var(--crimson)}.cal-month-head .eyebrow{font-size:11px;margin:0}.cal-today-label{border:1px solid var(--line);color:var(--crimson);background:var(--rose);font-size:11px;padding:5px 9px;border-radius:99px}
+.cal-legend{padding:17px 22px;gap:14px;font-size:11px}.cal-legend i{width:6px;height:6px;border-radius:50%}.cal-weekdays{padding:9px 0;background:transparent;font-size:10px;border-top-color:var(--line)}.cal-day{min-height:75px;padding:4px 2px;border-color:var(--line)}.cal-blank{background:transparent}.cal-date{font-size:11px;font-weight:600;width:24px;height:24px;margin:0 auto 4px;font-variant-numeric:tabular-nums}.cal-today{background:var(--rose)}.cal-today .cal-date{border:0;background:var(--crimson);color:var(--glass-solid);box-shadow:0 0 0 2px var(--paper);font-weight:750}.cal-chip{border-radius:5px;font-size:10px;line-height:1.2;min-height:40px}.cal-chip-title a,.cal-chip-title>span{min-width:0;min-height:40px;line-height:28px;padding:6px 2px 6px 12px;font-weight:600}.cal-check{left:2px;width:7px;height:7px;top:17px;font-size:7px}.cal-chips{gap:3px}.cal-todo{color:var(--ink);background:var(--sky)}.cal-grid-note{font-size:10px;padding:0 18px 14px;margin:12px 0 0}.cal-agenda-date{margin-bottom:10px;padding:0 3px}.cal-agenda-date h3{font-size:13px}.cal-event-row.card{border:0;box-shadow:none;border-radius:0;background:transparent;padding:18px 20px}.cal-event-row:before{display:none}.cal-agenda-day .task-list{display:block}
+.mat-intro.card{padding:26px 24px;background:var(--paper);margin-bottom:24px}.mat-lead{font-size:21px;line-height:1.4;font-weight:650;margin:12px 0 20px;letter-spacing:-.65px}.mat-overall{font-size:14px;margin:0 0 20px;color:var(--crimson);line-height:1.4}.mat-overall strong{font-size:56px;font-weight:650;letter-spacing:-2.5px;margin-left:7px}.mat-overall strong span{font-size:27px;font-weight:450;letter-spacing:-1px}.mat-intro .muted{font-size:12px;line-height:1.85}.materials-list{gap:18px}.mat-course.card{padding:0}.mat-course>summary{padding:18px 20px;min-height:72px;gap:8px}.mat-course-name{font-size:16px;font-weight:700;letter-spacing:-.4px}.mat-counter{font-size:11px;font-weight:500;color:var(--muted)}.mat-weeks{padding:0 18px 10px}.mat-week>summary{min-height:62px;gap:7px}.mat-week-heading{font-size:13px;font-weight:650;gap:5px}.mat-latest{font-size:9px;color:var(--crimson);background:var(--rose);border-radius:4px;padding:3px 5px}.mat-row{min-height:60px;gap:8px}.mat-title{font-size:13px;line-height:1.6;letter-spacing:-.1px}.mat-check{min-height:48px;min-width:40px}.mat-check input{width:18px;height:18px}.mat-kind,.mat-kind svg{width:17px}.mat-kind{flex-basis:17px}.mat-subhead{font-size:11px;letter-spacing:.2px}.mat-hidden{font-size:11px;line-height:1.7}
+.week-hero.card{padding:25px 23px}.week-progress-head h2 strong{font-size:66px;color:var(--ink);font-weight:650;letter-spacing:-3px}.week-progress-head h2>span{font-size:27px}.week-percent{font-size:29px;font-weight:600;letter-spacing:-1.5px;padding:7px 8px;border-radius:12px;background:var(--rose);color:var(--crimson)}.week-bar{height:10px;border:0;border-radius:99px;margin-top:25px;background:var(--line)}.week-bar>span{border-radius:99px}.week-encouragement{margin:16px 0 26px;font-size:12px}.week-days{padding-top:22px;gap:5px}.week-day-count{font-size:10px}.week-key{font-size:10px}.week-dot{width:32px;height:32px}.week-completed.card{padding:0}.week-completed-content .card{background:var(--paper)}
+.score-overview{margin:0 0 24px;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}.score-overview .eyebrow{margin:0 0 12px}.sq-average{font-size:58px;line-height:1.15;font-weight:650;letter-spacing:-2.5px;color:var(--crimson);font-variant-numeric:tabular-nums}.sq-average>span:not(.sq-number){font-size:24px;letter-spacing:-.5px;margin-left:3px}.score-overview p.muted{font-size:11px;margin:12px 0 0}.sq-toolbar{gap:12px;align-items:center}.sq-toolbar p{font-size:12px}.sq-toolbar button{border-radius:99px;font-size:11px;padding:10px 13px;min-height:44px}.sq-score-grid{gap:12px}.sq-score-card.card{padding:19px 16px;border-radius:20px}.sq-course-title{font-size:13px;min-height:44px;margin-bottom:16px;font-weight:650}.sq-score{font-size:31px;font-weight:650;letter-spacing:-1.7px}.sq-grade{color:var(--crimson);font-size:11px}.sq-score-bar{height:3px;margin-top:15px}.sq-score-bar>span{background:var(--crimson)}.sq-sparkline polyline{stroke:var(--crimson)}.sq-sparkline circle{fill:var(--crimson)}.sq-chart-caption{font-size:10px}.sq-results{padding:2px 20px;list-style:none}.sq-result-row{gap:10px}.sq-result-score{font-size:12px}.sq-result-percent{font-size:11px}.numbers-hidden .fx-metal{visibility:hidden!important}
+.news-intro.card{background:var(--paper);padding:25px 23px}.news-stats{gap:6px 12px;margin:14px 0 16px;font-size:13px}.news-stats strong{font-size:37px;font-weight:650;letter-spacing:-2px;color:var(--crimson)}.news-intro .muted{font-size:11px}.news-entries.card{padding:0 22px}.news-course-head h2{font-size:14px}.news-entry-head h3{font-size:14px;line-height:1.65;font-weight:650}.news-excerpt{font-size:12px;color:var(--muted);line-height:1.85}.news-time{font-size:10px}.news-dot{background:var(--crimson)}
+.sq-hero.card{background:var(--paper);border-color:var(--line);padding:24px 20px;grid-template-columns:122px minmax(0,1fr);gap:15px}.sq-character-stats h2{font-size:17px;font-weight:650;line-height:1.5}.sq-character-stats .eyebrow{color:var(--muted)}.sq-level{color:var(--crimson);background:var(--rose);font-size:12px;font-weight:700;letter-spacing:.8px;border-color:transparent}.sq-stat-label{font-size:11px}.sq-next-level{font-size:10px;line-height:1.7}.sq-quest-list{padding:0 18px}.sq-xp-reward{font-size:10px;padding:5px 7px}.sq-quest-row{gap:9px}.sq-game-rules{font-size:11px}.sq-quest-help,.sq-quest-intro{font-size:12px}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.card,.task-list,.missing-hero,.empty,.sq-results,.sq-quest-list{background:var(--glass-solid)}.card:before,.task-list:before,.missing-hero:before,.sq-results:before,.sq-quest-list:before{backdrop-filter:none;background:linear-gradient(135deg,var(--rim),transparent 40%)}}
+@media(min-width:760px){main{padding:48px 32px 40px}h1{font-size:36px;letter-spacing:-1.7px}.brandline{margin-bottom:30px}.page-head{margin-bottom:34px}.card{padding:30px}.task-row{padding:20px 24px}.mat-intro.card{padding:32px}.mat-overall strong{font-size:70px}.missing-hero{padding:32px}.sq-hero.card{padding:30px;grid-template-columns:180px minmax(0,1fr);gap:30px}.sq-score-card.card{padding:24px 20px}.sq-course-title{font-size:15px}.sq-score{font-size:38px}.sq-results{padding:4px 24px}.cal-day{min-height:83px;padding:6px 4px}.cal-date{margin:0 0 5px auto}.cal-chip-title a,.cal-chip-title>span{padding-left:15px}.cal-check{left:4px}.cal-chip{font-size:11px}.week-hero.card{padding:32px}.week-percent{font-size:36px}}
+@media(min-width:1060px){.view-calendar main{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:0 28px;align-items:start}.view-calendar .page-head,.view-calendar .page-foot{grid-column:1/-1}.view-calendar .cal-board{grid-column:1;grid-row:2}.view-calendar main>.section{grid-column:2;margin:0 0 26px}.view-calendar .cal-agenda-day{margin-bottom:20px}.view-calendar .cal-agenda-day .task-row,.view-calendar .cal-event-row.card{padding:16px 18px}.view-calendar .cal-month-head h2 strong{font-size:70px}.view-materials main{max-width:1100px;display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:0 28px;align-items:start}.view-materials .page-head,.view-materials .page-foot{grid-column:1/-1}.view-materials .mat-intro{position:sticky;top:28px}.view-materials .materials-list{grid-column:2}.view-materials .mat-overall strong{font-size:72px}}
+@media(max-width:370px){main{padding-left:16px;padding-right:16px}.cal-month-head h2 strong{font-size:52px}.week-progress-head h2 strong{font-size:52px}.week-progress-head h2>span{font-size:23px}.week-percent{font-size:24px}.mat-course>summary{padding-left:16px;padding-right:16px}.sq-hero.card{grid-template-columns:104px minmax(0,1fr);padding:22px 16px;gap:10px}}
+'''
+
+
+# Original, self-contained shaders; no third-party shader source copied.
+_FX_CREDIT = '''<!-- Visual technique references: ruucm/shadergradient (package MIT, no root LICENSE: idea only); paper-design/liquid-logo (PolyForm Shield 1.0.0: idea only); pmndrs/react-three-fiber (MIT, Poimandres: scene and render-loop concepts only). All GLSL and WebGL code below is original. No React, Three.js, fonts, or network assets are included. -->'''
+
+_FX_HTML = '<canvas class="fx-bg" aria-hidden="true" data-fx="pending"></canvas>'
+
+_FX_CSS = r'''
+body{isolation:isolate;background:radial-gradient(ellipse at 92% 4%,#e6b9ae 0,transparent 45%),radial-gradient(ellipse at 8% 75%,#eed5c2 0,transparent 52%),#faf1e8}
+body>main{position:relative;z-index:1}.fx-bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.56}
+.fx-metal-target{position:relative;display:inline-block;vertical-align:baseline}.fx-metal{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}.numbers-hidden .fx-metal{visibility:hidden!important}
+@media(prefers-color-scheme:dark){body{background:radial-gradient(ellipse at 95% 0,#4b102b 0,transparent 50%),radial-gradient(ellipse at 5% 80%,#351423 0,transparent 55%),#160c14}.fx-bg{opacity:.7}}
+@media print{.fx-bg,.fx-metal{display:none!important}}
+'''
+
+_FX_JS = r'''
+(function(){
+'use strict';
+var bg=document.querySelector('.fx-bg');if(!bg)return;
+var dark=matchMedia('(prefers-color-scheme: dark)'),reduced=matchMedia('(prefers-reduced-motion: reduce)');
+var state=window.__oscFx={background:false,metal:false,frames:0,metalFrames:0,fpsLimit:24,dpr:1,reduced:reduced.matches,paused:document.hidden,errors:[]};
+var jobs=[],raf=0,last=-1000,elapsed=0,previous=0;
+function program(canvas,vertex,fragment){
+ var gl=canvas.getContext('webgl',{alpha:true,antialias:false,preserveDrawingBuffer:true,powerPreference:'low-power'});
+ if(!gl){canvas.dataset.fx='fallback';canvas.style.display='none';return null;}
+ function shader(type,src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){throw new Error(gl.getShaderInfoLog(s));}return s;}
+ var p=gl.createProgram();gl.attachShader(p,shader(gl.VERTEX_SHADER,vertex));gl.attachShader(p,shader(gl.FRAGMENT_SHADER,fragment));gl.linkProgram(p);
+ if(!gl.getProgramParameter(p,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(p));gl.useProgram(p);
+ canvas.dataset.fx='ready';canvas.addEventListener('webglcontextlost',function(e){e.preventDefault();canvas.style.display='none';canvas.dataset.fx='fallback';});
+ return {gl:gl,p:p,uniform:function(n){return gl.getUniformLocation(p,n);}};
+}
+function buffer(gl,p,data){var b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(data),gl.STATIC_DRAW);var a=gl.getAttribLocation(p,'a');gl.enableVertexAttribArray(a);gl.vertexAttribPointer(a,2,gl.FLOAT,false,0,0);}
+var noise='float hash3(vec3 p){return fract(sin(dot(p,vec3(17.17,71.31,153.17)))*17351.719);}float noise3(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.0-2.0*f);float a=mix(hash3(i),hash3(i+vec3(1,0,0)),f.x);float b=mix(hash3(i+vec3(0,1,0)),hash3(i+vec3(1,1,0)),f.x);float c=mix(hash3(i+vec3(0,0,1)),hash3(i+vec3(1,0,1)),f.x);float d=mix(hash3(i+vec3(0,1,1)),hash3(i+vec3(1,1,1)),f.x);return mix(mix(a,b,f.y),mix(c,d,f.y),f.z);}';
+try{
+ var scene=program(bg,'precision mediump float;attribute vec2 a;uniform float t,aspect;varying vec2 uv;varying float elevation;'+noise+'void main(){uv=a*.5+.5;vec3 q=vec3(a*1.14,t*.035);float n=noise3(q)+.34*noise3(q*2.7+4.0);float z=(n-.65)*1.8;vec3 world=vec3(a.x*aspect*5.6,a.y*5.6,z);float cy=cos(.18),sy=sin(.18);world.yz=mat2(cy,-sy,sy,cy)*world.yz;float depth=6.0-world.z;gl_Position=vec4(world.x*1.6/aspect,world.y*1.6,0.0,depth);elevation=n;}',
+ 'precision mediump float;uniform float t,darkMode;varying vec2 uv;varying float elevation;'+noise+'void main(){float drift=noise3(vec3(uv*2.0,t*.022));float bloom=smoothstep(.42,.92,drift+.16*elevation);vec3 cream=vec3(.945,.839,.761),beige=vec3(.867,.655,.545),crimson=vec3(.545,0.,.157),ink=vec3(.086,.016,.024);vec3 light=mix(mix(cream,vec3(1.0),.53),beige,.19*bloom);light=mix(light,crimson,.15*bloom*bloom);vec3 night=mix(ink,crimson,.09+.29*bloom);night+=vec3(.018,.008,.023)*elevation;gl_FragColor=vec4(mix(light,night,darkMode),1.0);}');
+ if(scene){var mesh=[],nx=56,ny=48;for(var y=0;y<ny;y++)for(var x=0;x<nx;x++){var x0=x/nx*2-1,x1=(x+1)/nx*2-1,y0=y/ny*2-1,y1=(y+1)/ny*2-1;mesh.push(x0,y0,x1,y0,x0,y1,x0,y1,x1,y0,x1,y1);}buffer(scene.gl,scene.p,mesh);var st=scene.uniform('t'),sa=scene.uniform('aspect'),sd=scene.uniform('darkMode');
+ jobs.push(function(time){var gl=scene.gl,w=Math.max(1,innerWidth),h=Math.max(1,innerHeight);if(bg.width!==w||bg.height!==h){bg.width=w;bg.height=h;}gl.viewport(0,0,w,h);gl.uniform1f(st,time);gl.uniform1f(sa,w/h);gl.uniform1f(sd,dark.matches?1:0);gl.drawArrays(gl.TRIANGLES,0,mesh.length/2);state.frames++;});state.background=true;}
+}catch(e){state.errors.push(String(e));bg.dataset.fx='fallback';bg.style.display='none';}
+var target=document.querySelector('.missing-hero strong,.cal-month-head h2 strong,#mat-overall,.week-percent,.sq-average,.news-stats strong,.sq-level');
+if(!target&&document.body.classList.contains('view-scores'))target=document.querySelector('.sq-score');
+if(target){try{
+ var wrap=document.createElement('span');wrap.className='fx-metal-target';target.parentNode.insertBefore(wrap,target);wrap.appendChild(target);
+ var metal=document.createElement('canvas');metal.className='fx-metal';metal.setAttribute('aria-hidden','true');metal.dataset.fx='pending';wrap.appendChild(metal);
+ var m=program(metal,'attribute vec2 a;varying vec2 uv;void main(){uv=a*.5+.5;gl_Position=vec4(a,0,1);}',
+ 'precision mediump float;varying vec2 uv;uniform sampler2D mask;uniform vec2 pixel;uniform float t,darkMode;void main(){vec2 p=vec2(uv.x,1.-uv.y);float alpha=texture2D(mask,p).a;if(alpha<.01){gl_FragColor=vec4(0);return;}float gx=texture2D(mask,p+vec2(pixel.x,0)).a-texture2D(mask,p-vec2(pixel.x,0)).a;float gy=texture2D(mask,p+vec2(0,pixel.y)).a-texture2D(mask,p-vec2(0,pixel.y)).a;float wave=sin(p.x*10.5+p.y*5.2+sin(p.y*7.8-t*.37)*1.45+t*.21);float sheen=smoothstep(.22,.72,wave);float rim=clamp(abs(gx)+abs(gy),0.,1.);vec3 low=mix(vec3(.13,.025,.065),vec3(.77,.67,.63),darkMode);vec3 high=mix(vec3(.34,.12,.18),vec3(1.,.94,.86),darkMode);vec3 color=mix(low,high,clamp(.14+sheen*.69+rim*.17,0.,1.));gl_FragColor=vec4(color,alpha);}');
+ if(m){buffer(m.gl,m.p,[-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]);var tex=m.gl.createTexture();m.gl.bindTexture(m.gl.TEXTURE_2D,tex);m.gl.texParameteri(m.gl.TEXTURE_2D,m.gl.TEXTURE_WRAP_S,m.gl.CLAMP_TO_EDGE);m.gl.texParameteri(m.gl.TEXTURE_2D,m.gl.TEXTURE_WRAP_T,m.gl.CLAMP_TO_EDGE);m.gl.texParameteri(m.gl.TEXTURE_2D,m.gl.TEXTURE_MIN_FILTER,m.gl.LINEAR);m.gl.texParameteri(m.gl.TEXTURE_2D,m.gl.TEXTURE_MAG_FILTER,m.gl.LINEAR);
+ var mask=document.createElement('canvas'),ctx=mask.getContext('2d'),mt=m.uniform('t'),md=m.uniform('darkMode'),mp=m.uniform('pixel'),dirty=true,lastText='';
+ function updateMask(){
+  var r=wrap.getBoundingClientRect(),w=Math.max(1,Math.ceil(r.width)),h=Math.max(1,Math.ceil(r.height)),text=target.textContent;
+  if(!dirty&&text===lastText&&metal.width===w&&metal.height===h)return;
+  dirty=false;lastText=text;metal.width=mask.width=w;metal.height=mask.height=h;ctx.textAlign='left';ctx.textBaseline='alphabetic';ctx.fillStyle='#fff';
+  var walker=document.createTreeWalker(target,NodeFilter.SHOW_TEXT),node,range=document.createRange();
+  while((node=walker.nextNode())){
+   var s=getComputedStyle(node.parentElement);if(s.visibility==='hidden'||s.display==='none')continue;
+   ctx.font=s.fontStyle+' '+s.fontWeight+' '+s.fontSize+' '+s.fontFamily;
+   if('fontKerning' in ctx)ctx.fontKerning=s.fontKerning;
+   if('letterSpacing' in ctx)ctx.letterSpacing=s.letterSpacing==='normal'?'0px':s.letterSpacing;
+   var offset=0;
+   Array.from(node.nodeValue).forEach(function(letter){
+    range.setStart(node,offset);offset+=letter.length;range.setEnd(node,offset);
+    if(!letter.trim())return;var rect=range.getBoundingClientRect();if(!rect.width||!rect.height)return;
+    var metric=ctx.measureText(letter),ascent=metric.fontBoundingBoxAscent||parseFloat(s.fontSize)*.8,descent=metric.fontBoundingBoxDescent||parseFloat(s.fontSize)*.2;
+    var baseline=rect.top-r.top+(rect.height-ascent-descent)/2+ascent;
+    ctx.fillText(letter,rect.left-r.left,baseline);
+   });
+  }
+  m.gl.bindTexture(m.gl.TEXTURE_2D,tex);m.gl.texImage2D(m.gl.TEXTURE_2D,0,m.gl.RGBA,m.gl.RGBA,m.gl.UNSIGNED_BYTE,mask);m.gl.uniform2f(mp,1/w,1/h);
+ }
+ jobs.push(function(time){updateMask();var gl=m.gl;gl.viewport(0,0,metal.width,metal.height);gl.uniform1f(mt,time);gl.uniform1f(md,dark.matches?1:0);gl.drawArrays(gl.TRIANGLES,0,6);state.metalFrames++;});state.metal=true;
+ new MutationObserver(function(){dirty=true;invalidate();}).observe(target,{childList:true,characterData:true,subtree:true});
+ if(window.ResizeObserver)new ResizeObserver(function(){dirty=true;invalidate();}).observe(wrap);
+ }
+}catch(e){state.errors.push(String(e));if(metal){metal.dataset.fx='fallback';metal.style.display='none';}}}
+function draw(){jobs.forEach(function(job){job(elapsed);});}
+function tick(ms){raf=0;if(document.hidden||reduced.matches)return;if(ms-last>=1000/24){if(previous)elapsed+=Math.min(.1,(ms-previous)/1000);previous=ms;last=ms;draw();}raf=requestAnimationFrame(tick);}
+function invalidate(){if(document.hidden)return;draw();if(!reduced.matches&&!raf)raf=requestAnimationFrame(tick);}
+function mode(){state.reduced=reduced.matches;cancelAnimationFrame(raf);raf=0;previous=0;invalidate();}
+document.addEventListener('visibilitychange',function(){state.paused=document.hidden;if(document.hidden){cancelAnimationFrame(raf);raf=0;previous=0;}else invalidate();});
+if(dark.addEventListener){dark.addEventListener('change',mode);reduced.addEventListener('change',mode);}else{dark.addListener(mode);reduced.addListener(mode);}
+addEventListener('resize',invalidate);invalidate();
+})();
+'''
+
+
 def _page(slug, data, now, body, css='', js='', wide=False):
     title = next((entry[1] for entry in UIS.values() if entry[0] == slug), '나의 LMS')
     generated = _dt(data.get('generated_at')) or _dt(now)
@@ -530,12 +650,13 @@ def _page(slug, data, now, body, css='', js='', wide=False):
     footer = f'고려대 LMS에서 {_date(generated)}에 받음 · 조회만 했어요 · OSC 고려대 Workshop 01'
     return ('<!doctype html><html lang="ko"><head><meta charset="utf-8">'
             '<meta name="viewport" content="width=device-width, initial-scale=1">'
-            f'<title>{_e(title)}</title><style>{_VIEW_CSS}\n{css}</style></head>'
-            f'<body class="view-{_e(slug)}"><main class="{"wide" if wide else "column"}">'
+            f'<title>{_e(title)}</title>{_GLASS_CREDIT}{_FX_CREDIT}'
+            f'<style>{_VIEW_CSS}\n{css}\n{_POLISH_CSS}\n{_FX_CSS}</style></head>'
+            f'<body class="view-{_e(slug)}">{_GLASS_SVG}{_FX_HTML}<main class="{"wide" if wide else "column"}">'
             f'<header class="page-head"><div class="brandline"><div class="wordmark">OSC · WORKSHOP 01</div>{badge}</div>'
             f'<h1>{_e(title)}</h1><p class="head-date">{_e(_date(now, False))} · 나의 캠퍼스 한눈에</p></header>'
             f'{body}<footer class="page-foot"><p>{_e(footer)}</p></footer></main>'
-            + (f'<script>{js}</script>' if js else '') + '</body></html>')
+            + (f'<script>{js}</script>' if js else '') + f'<script>{_FX_JS}</script></body></html>')
 
 
 def render_missing(data: dict, now: datetime) -> str:
@@ -1017,6 +1138,16 @@ def render_scores(data: dict, now: datetime) -> str:
                       f'<div class="sq-result-score"><strong>{mark}</strong>{ratio_text}</div></li>')
     body = ('<div class="sq-toolbar"><p class="muted">점수와 쌓여 온 기록을 한눈에 봐요.</p>'
             '<button id="sq-privacy" type="button" hidden aria-pressed="false">숫자 가리기</button></div>')
+    # The v2 hero shows the unweighted mean of available course scores.
+    # Existing per-course scores, chart data, and privacy behavior stay unchanged.
+    available_scores = [_number(course.get("score")) for course in courses]
+    available_scores = [score for score in available_scores if score is not None]
+    average = (f'{sum(available_scores) / len(available_scores):.1f}<span>%</span>'
+               if available_scores else '<span>점수 없음</span>')
+    overview = ('<section class="card score-overview"><div><p class="eyebrow">현재 점수 평균</p>'
+                f'<div class="sq-average">{average}</div>'
+                f'<p class="muted">점수가 있는 {len(available_scores)}개 과목의 단순 평균</p></div></section>')
+    body = overview + body
     body += (f'<div class="sq-score-grid">{"".join(cards)}</div>' if cards
              else _empty("아직 표시할 과목이 없어요. 과목이 생기면 점수를 함께 볼 수 있어요."))
     body += _section("최근 채점", '<ul class="sq-results">' + "".join(recent) + '</ul>'

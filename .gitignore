@@ -5,3 +5,7 @@ dashboard-*.md
 BRIEF_*.md
 DONE_*.txt
 _qa/
+_ref/
+verify_views_v2*
+views_v2_*.json
+browser_checks_v2.json
