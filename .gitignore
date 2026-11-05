@@ -9,3 +9,6 @@ _ref/
 verify_views_v2*
 views_v2_*.json
 browser_checks_v2.json
+verify_views_v3*
+views_v3_*.json
+browser_checks_v3.json
